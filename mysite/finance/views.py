@@ -12,5 +12,15 @@ def person(request):
 def person_summary(request,person,month_year):
     return HttpResponse("Hello, world. You are at the polls index.")
 
-def purchase(request):
-    return HttpResponse("Hello, world. You are at the polls index.")
+def confirm(request):
+    return HttpResponse("confirming your purchase here")
+
+def purchase(request,person_name):
+    person = get_object_or_404(People,person_name=person_name)
+    category_list = person.category_set.filter(month_number=2,year_number=2019)
+    context = {
+        'group_name' : "texasCouple",
+        'person_name': person.person_name,
+        'category_list': category_list
+    }
+    return render(request,'finance/purchase.html',context)
