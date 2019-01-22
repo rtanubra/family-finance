@@ -1,0 +1,24 @@
+<!--Person HTML here I would perhaps show the last few items purchased this month -->
+<!-- SHOW SUMMARY -->
+<h1>Summary for {{person.person_name}} in {{month}} {{year}}</h1>
+<h3>Monthly Summary Table {{person.person_name}}</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Expected</th>
+                <th>Spent</th>
+                <th>Left</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in category_list %}
+            <tr>
+                <td>{{category.category_name}}</td>
+                <td>{{category.category_total}}</td>
+                <td>{{category.category_spent}}</td>
+                <td>{{category.category_left}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>

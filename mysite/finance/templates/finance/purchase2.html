@@ -1,0 +1,9 @@
+<form action="{% url 'finance:confirm' %}" method="post">
+    {% csrf_token %}
+    Making a purchase for {{form.person.person_name}}.<br><br>
+    Category: {{ form.category }}<br><br>
+    Description : {{form.description}} <br><br>
+    Purchase Date: {{ form.purchase_date }}<br><br>
+    Payment Method: {{ form.method }}<br><br>
+    <input type="submit" value="Confim Purchase">
+</form>
